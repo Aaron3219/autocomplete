@@ -20,7 +20,7 @@ let state = { ...originalState };
 
 const resetState = () => state = { ...originalState };
 
-const printIncreasedLevelMessage = () => {
+const printIncreasedLevelMessage = (keepState) => {
     console.log("Your selection: " + keepState.userInput);
     console.log("\nTrust level has been increased.");
     console.log("Press any letter to continue.");
@@ -99,7 +99,7 @@ process.stdin.on('keypress', function (ch, key) {
 
                 backend.increaseTrustLevel(keepState.userInput, newUserInput.trustLevel)
 
-                printIncreasedLevelMessage()
+                printIncreasedLevelMessage(keepState)
 
             } else if (keepState.userInput.length >= keepState.startingLength) {
                 // Check if the typed in value already exists in the database
@@ -110,7 +110,7 @@ process.stdin.on('keypress', function (ch, key) {
                             if (result.name === keepState.userInput) {
                                 backend.increaseTrustLevel(result.name, result.trustLevel)
 
-                                printIncreasedLevelMessage();
+                                printIncreasedLevelMessage(keepState);
                             }
                         })
                         // Add new database entry if it doesn't exist
