@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node script_new.js",
+    "start": "node frontend.js",
     "be": "node backend.js"
   },
   "author": "Aaron von Schassen",

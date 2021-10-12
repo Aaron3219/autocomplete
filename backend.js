@@ -26,18 +26,6 @@ const closeConnection = () => {
     connection.destroy();
 }
 
-const buildSuggestionString = (rows, selectedIndex) => {
-    let resultString = '';
-    let index = 1;
-
-    rows.forEach(row => {
-        resultString += index + '. ' + row.name + (index - 1 == selectedIndex ? ' <--' : '') + '\n';
-        index++;
-    });
-
-    return resultString;
-}
-
 const lowerTrustLevel = (name, oldTrustLevel) => {
     let newTrustLevel = (oldTrustLevel - (1 - oldTrustLevel) * process.env.LOWER_TRUST_LEVEL_FACTOR).toFixed(6);
     connection.query(`UPDATE names SET trustLevel = ${newTrustLevel} WHERE name = '${name}';`);
@@ -54,7 +42,6 @@ const addNewName = (name) => {
 
 exports.getSuggestions = getSuggestions;
 exports.closeConnection = closeConnection;
-exports.buildSuggestionString = buildSuggestionString;
 exports.lowerTrustLevel = lowerTrustLevel;
 exports.addNewName = addNewName;
 exports.increaseTrustLevel = increaseTrustLevel;
