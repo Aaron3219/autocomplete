@@ -1,0 +1,19 @@
+{
+  "name": "aaaaaaaaah",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node script_new.js",
+    "be": "node backend.js"
+  },
+  "author": "Aaron von Schassen",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "fs": "0.0.1-security",
+    "keypress": "^0.2.1",
+    "mysql": "^2.18.1",
+    "readline": "^1.3.0"
+  }
+}
